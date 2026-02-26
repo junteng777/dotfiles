@@ -6,12 +6,13 @@
 
 ```
 dotfiles/
+├── antigravity/
+│   └── mcp_config.json     # MCP 服务器配置（Antigravity 工具链）
 ├── idea/
 │   └── .ideavimrc          # JetBrains IdeaVim 配置
 ├── vscode/
 │   ├── settings.json       # VS Code 全局设置
 │   └── keybindings.json    # VS Code 自定义快捷键
-├── mcp_config.json         # MCP 服务器配置（AI IDE 工具链）
 └── .gitignore
 ```
 
@@ -107,7 +108,7 @@ dotfiles/
 
 ## 🤖 MCP 配置
 
-[Model Context Protocol](https://modelcontextprotocol.io/) 服务器配置，用于 AI 编码助手（如 Antigravity、VS Code Copilot Agent 等）。
+[Model Context Protocol](https://modelcontextprotocol.io/) 服务器配置（位于 `antigravity/mcp_config.json`），用于 AI 编码助手（如 Antigravity、VS Code Copilot Agent 等）。
 
 **已配置的 MCP 服务器：**
 
