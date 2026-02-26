@@ -1,0 +1,509 @@
+{
+    // ========== 编辑器基础设置 ==========
+    "editor.minimap.enabled": true,
+    "editor.wordWrap": "on",
+    "editor.fontLigatures": true,
+    "editor.inlineSuggest.showToolbar": "always",
+    "editor.inlineSuggest.suppressSuggestions": true,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorBlinking": "phase",
+    "editor.minimap.sectionHeaderFontSize": 4,
+    "diffEditor.ignoreTrimWhitespace": true,
+    // ========== 工作台设置 ==========
+    "workbench.enableExperiments": false,
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "workbench.startupEditor": "none",
+    "workbench.iconTheme": "vscode-icons",
+    // ========== 文件管理 ==========
+    "files.autoSave": "afterDelay",
+    "files.associations": {
+        "*.yml": "spring-boot-properties-yaml",
+        "*.html": "html",
+        "*.vue": "vue"
+    },
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    // ========== 搜索设置 ==========
+    "search.followSymlinks": false,
+    // ========== 同步设置 ==========
+    "settingsSync.ignoredExtensions": [
+        // "ms-vscode-remote.remote-wsl"
+        "editor.fontFamily"
+    ],
+    "settingsSync.ignoredSettings": [
+        "editor.fontSize",
+        "terminal.integrated.fontSize",
+        "java.configuration.maven.globalSettings",
+        "java.configuration.maven.userSettings"
+    ],
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.gpuAcceleration": "auto",
+    "terminal.integrated.tabs.location": "left",
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.smoothScrolling": true,
+    "terminal.integrated.suggest.enabled": true,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.stickyScroll.enabled": true,
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "source": "Git Bash",
+            "icon": "terminal-git-bash"
+        },
+        "Windows PowerShell": {
+            "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+        }
+    },
+    // ========== Vim 插件配置 ==========
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
+    },
+    "vim.autoindent": true,
+    "vim.incsearch": true,
+    "vim.hlsearch": true,
+    "vim.ignorecase": true,
+    "vim.smartcase": true,
+    "vim.gdefault": true,
+    "vim.overrideCopy": true,
+    "vim.useSystemClipboard": true,
+    "vim.foldfix": true,
+    "vim.surround": true,
+    "vim.easymotion": true,
+    "vim.highlightedyank.enable": true,
+    "vim.camelCaseMotion.enable": true,
+    "vim.sneak": true,
+    "vim.sneakUseIgnorecaseAndSmartcase": true,
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "<C-w>"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        },
+        {
+            // 查找
+            "before": [
+                "\\",
+                "f"
+            ],
+            "commands": [
+                "actions.find"
+            ]
+        },
+        {
+            // 替换
+            "before": [
+                "\\",
+                "r"
+            ],
+            "commands": [
+                "editor.action.startFindReplaceAction"
+            ]
+        },
+        {
+            "before": [
+                ",",
+                "r"
+            ],
+            "commands": [
+                ":register"
+            ]
+        },
+        {
+            "before": [
+                ",",
+                "m"
+            ],
+            "commands": [
+                ":marks"
+            ]
+        },
+        {
+            "before": [
+                ",",
+                "t"
+            ],
+            "commands": [
+                "workbench.action.terminal.toggleTerminal"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "j"
+            ],
+            "commands": [
+                "editor.action.marker.next"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "k"
+            ],
+            "commands": [
+                "editor.action.marker.prev"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "m"
+            ],
+            "commands": [
+                "editor.action.quickFix"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w"
+            ],
+            "commands": [
+                "workbench.action.files.save"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "q"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            // 打开界面
+            "before": [
+                ",",
+                "g"
+            ],
+            "commands": [
+                "workbench.view.scm"
+            ]
+        },
+        {
+            "before": [
+                ",",
+                "e"
+            ],
+            "commands": [
+                "workbench.view.explorer"
+            ]
+        },
+        // debug 快捷键
+        {
+            // 设置断点
+            "before": [
+                "<leader>",
+                "b"
+            ],
+            "commands": [
+                "editor.debug.action.toggleBreakpoint"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d"
+            ],
+            "commands": [
+                "workbench.action.debug.run"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                ";"
+            ],
+            "commands": [
+                "workbench.action.debug.stepOver"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "i"
+            ],
+            "commands": [
+                "workbench.action.debug.stepInto"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "o"
+            ],
+            "commands": [
+                "workbench.action.debug.stepOut"
+            ]
+        },
+        {
+            "before": [
+                "H"
+            ],
+            "after": [
+                "^"
+            ]
+        },
+        {
+            "before": [
+                "L"
+            ],
+            "after": [
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "Y"
+            ],
+            "after": [
+                "y",
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "q"
+            ],
+            "commands": [
+                "editor.action.formatDocument"
+            ]
+        }
+    ],
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "<C-v>"
+            ],
+            "commands": [
+                "editor.action.clipboardPasteAction"
+            ]
+        },
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
+        {
+            "before": [
+                "<C-i>"
+            ],
+            "commands": [
+                "editor.action.triggerSuggest"
+            ]
+        }
+    ],
+    "vim.operatorPendingModeKeyBindings": [
+        {
+            "before": [
+                "L"
+            ],
+            "after": [
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "H"
+            ],
+            "after": [
+                "^"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "L"
+            ],
+            "after": [
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "H"
+            ],
+            "after": [
+                "^"
+            ]
+        },
+        {
+            "before": [
+                "<C-x>"
+            ],
+            "commands": [
+                "editor.action.clipboardCutAction"
+            ]
+        },
+        {
+            "before": [
+                "<C-c>"
+            ],
+            "commands": [
+                "editor.action.clipboardCopyAction"
+            ]
+        },
+        {
+            "before": [
+                "<C-v>"
+            ],
+            "commands": [
+                "editor.action.clipboardPasteAction"
+            ]
+        }
+    ],
+    "vim.handleKeys": {
+        "<C-u>": false,
+        "<C-a>": false,
+        "<C-c>": false,
+        "<C-n>": false,
+        "<C-p>": false,
+        "<C-w>": true,
+        "<C-e>": true,
+        "<C-y>": false,
+        "<C-k>": false,
+        "<C-j>": false
+    },
+    // ========== Python 相关配置 ==========
+    "python.analysis.autoImportCompletions": true,
+    "python.terminal.launchArgs": [],
+    "isort.args": [
+        "--profile",
+        "Ruff"
+    ],
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    // ========== Java 相关配置 ==========
+    "java.maven.downloadSources": true,
+    "redhat.telemetry.enabled": true,
+    "maven.executable.path": "c:\\apache-maven-3.9.9\\bin\\mvn.cmd",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-21",
+            "path": "C:\\Users\\Edon9\\.jdks\\ms-21.0.8",
+            "default": true
+        }
+    ],
+    // ========== 各语言格式化配置 ==========
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[xml]": {
+        "editor.defaultFormatter": "DotJoshJohnson.xml"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "Vue.volar"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    // ========== Intellicode 配置 ==========
+    "vsintellicode.features.python.deepLearning": "enabled",
+    "intellicodeCompletions.language.javascript": true,
+    // ========== GitHub Copilot 配置 ==========
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    // ========== Codegeex 配置 ==========
+    "Codegeex.Comment.LanguagePreference": "中文",
+    "Codegeex.EnableExtension": true,
+    "Codegeex.Privacy": true,
+    "Codegeex.DisabledFor": {
+        "plaintext": true
+    },
+    "Codegeex.License": "",
+    "Codegeex.Chat.fontSize": 12,
+    // ========== Lingma 配置 ==========
+    "Lingma.cloudModelManualTriggerGenerateLength": "long",
+    "Lingma.cloudModelAutoTriggerDisplayRule": true,
+    "Lingma.cloudModelLanguagesOrFileExtensions": "plaintext,.txt",
+    "Lingma.aI Chat.mcpToolsInAgentMode": false,
+    "Lingma.PreferredLanguage for AI Chat": "简体中文",
+    "Lingma.DisplayLanguage": "简体中文",
+    "Lingma.aI Chat.commandAllowlistInAgentMode": "",
+    // ========== 其他插件配置 ==========
+    "markdown-pdf.headerTemplate": "<div style=\"font-size: 10px; margin: 0 auto;\"> <span class='title'></span></div>",
+    "vscode-edge-devtools.webhintInstallNotification": true,
+    "vsicons.dontShowNewVersionMessage": true,
+    "accessibility.signalOptions.volume": 1,
+    "git.autofetch": true,
+    "todo-tree.regex.regexCaseSensitive": false,
+    "todo-tree.highlights.useColourScheme": true,
+    "chat.agent.enabled": true,
+    "chat.mcp.autostart": "newAndOutdated",
+    "remote.SSH.remotePlatform": {
+        "10.172.0.141": "linux"
+    },
+    "notebook.lineNumbers": "on",
+    "notebook.cellToolbarLocation": {
+        "default": "left",
+        "jupyter-notebook": "left"
+    },
+    "notebook.output.textLineLimit": 60,
+    "notebook.output.scrolling": true,
+    "notebook.stickyScroll.enabled": true,
+    "workbench.activityBar.location": "top",
+    "chat.tools.terminal.autoApprove": {
+        "npm view": true,
+        "node": true,
+        "console.log(typeof": true,
+        "try": true,
+        "console.log(Object.keys(d).slice(0,10))": true,
+        "}catch(e)": true,
+        "}": true,
+        "console.log('\\n----": true,
+        "console.log(JSON.stringify(d['86']": true,
+        "\"": true
+    },
+    "editor.fontFamily": "'Jetbrains Mono', 'monospace', monospace",
+    "workbench.editor.empty.hint": "hidden"
+}

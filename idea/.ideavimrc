@@ -1,0 +1,107 @@
+" =========== Vim 基础设置 ===========
+set scrolloff=5                " 光标上下保留 5 行可视区域
+set incsearch                  " 增量搜索（输入时实时高亮匹配）
+set hlsearch                   " 高亮所有搜索匹配项
+set number                     " 显示行号
+" set rnu                      " 相对行号（已禁用）
+set ignorecase                 " 搜索时忽略大小写
+set smartcase                  " 搜索含大写字母时自动切换为区分大小写
+set visualbell                 " 用视觉闪烁替代蜂鸣提示音
+set showmode                   " 显示当前模式（Normal / Insert / Visual）
+set showcmd                    " 显示输入中的命令
+set nrformats                  " 数字格式设置（Ctrl+A/X 递增递减行为）
+set wrapscan                   " 搜索到文件末尾后自动从头开始
+set matchpairs                 " 括号匹配跳转
+
+" =========== IdeaVim 专属设置 ===========
+"set clipboard=ideaput         " 使用 IDEA 的粘贴行为（已禁用）
+set clipboard+=unnamed         " 与系统剪贴板共享
+set ideamarks                  " 使用 IDEA 的书签系统替代 Vim marks
+set ideajoin                   " 使用 IDEA 的智能合并行（J 命令）
+
+" =========== 插件 ===========
+set NERDTree                   " 文件树侧边栏
+set surround                   " 快速添加/修改/删除包围字符（引号、括号等）
+set easymotion                 " 快速跳转到可视区域任意位置
+set highlightedyank            " 复制时高亮闪烁被复制的文本
+set sneak                      " 双字符搜索快速跳转（s + 两个字符）
+set which-key                  " 按键提示面板（按下 Leader 后显示可用键位）
+
+" ----------- 输入法自动切换 -----------
+set keep-english-in-normal                         " Normal 模式自动切回英文输入法
+set keep-english-in-normal-and-restore-in-insert   " 回到 Insert 模式时恢复之前的输入法
+
+" ----------- Which-Key 插件设置 -----------
+set notimeout                  " 禁用按键超时（等待完整组合键输入）
+set timeoutlen=1000            " 组合键等待时间 1000ms
+
+" NERDTree 常用命令参考：
+" :NERDTree            打开文件树
+" :NERDTreeClose       关闭文件树
+" :NERDTreeFind        定位当前文件在文件树中的位置
+" :NERDTreeRefreshRoot 刷新文件树根目录
+" :NERDTreeToggle      切换文件树显示/隐藏
+
+
+" =========== Leader 键 ===========
+let mapleader=" "              " 设置 Leader 键为空格
+
+" =========== Normal 模式映射 ===========
+
+" --- 代码辅助 ---
+nmap gh :action ShowErrorDescription<cr>        " 显示光标处的错误/警告详情
+nmap gq :action ReformatCode<CR>                " 格式化当前文件代码
+nmap gQ :action ShowReformatFileDialog<cr>      " 打开格式化选项对话框
+nmap <leader>p :action ParameterInfo<cr>        " 显示函数参数信息
+
+" --- 光标移动增强 ---
+noremap H ^                    " H 跳转到行首第一个非空字符
+noremap L $                    " L 跳转到行尾
+nnoremap Y y$                  " Y 复制从光标到行尾（与 D/C 行为一致）
+
+" --- NERDTree ---
+nnoremap <leader>n :NERDTreeFocus<cr>           " 聚焦到文件树
+nnoremap <leader>t :NERDTree<cr>                " 打开文件树
+
+" --- 重构 ---
+nnoremap <leader>r :RenameElement<cr>           " 重命名当前元素（变量、函数、类等）
+
+" =========== Insert 模式映射 ===========
+inoremap jj <ESC>                               " 快速退出插入模式
+inoremap <c-i> :action ImplementMethods<cr>     " 实现接口方法
+inoremap <c-o> :action OverrideMethods<cr>      " 覆写父类方法
+inoremap <c-j> :action SurroundWithLiveTemplate<cr>  " 使用 Live Template 包围代码
+inoremap <c-p> :action ParameterInfo<cr>        " 显示函数参数提示
+
+" =========== Visual 模式映射 ===========
+" （当前无自定义映射）
+
+" =========== 跨模式 Action 映射 ===========
+
+" --- 代码导航 ---
+map <leader>i <action>(GotoImplementation)      " 跳转到接口/抽象方法的实现
+map <leader>b <action>(GotoDeclaration)         " 跳转到声明/定义
+
+" --- 标签页管理 ---
+map <leader>q <action>(CloseContent)            " 关闭当前标签页
+map <leader>w <action>(SaveAll)                 " 保存所有文件
+
+" --- 全局搜索（Goto 系列） ---
+map <leader>c <action>(GotoClass)               " 按类名搜索
+map <leader>f <action>(GotoFile)                " 按文件名搜索
+map <leader>a <action>(GotoAction)              " 按操作/命令搜索
+map <leader>s <action>(GotoSymbol)              " 按符号名搜索
+
+" --- 层级视图 ---
+map <leader>h <action>(TypeHierarchy)           " 查看类型继承层级
+
+" =========== Handler 设置（IDE 与 Vim 按键冲突处理） ===========
+" 格式：sethandler <按键> <模式>:<处理方> (ide = 交给 IDE, vim = 交给 Vim)
+sethandler <c-c> v:ide         " Visual 模式下 Ctrl+C 交给 IDE（复制）
+sethandler <c-v> i:ide         " Insert 模式下 Ctrl+V 交给 IDE（粘贴）
+sethandler <c-x> v:ide         " Visual 模式下 Ctrl+X 交给 IDE（剪切）
+
+sethandler <c-j> i:ide         " Insert 模式下 Ctrl+J 交给 IDE
+"sethandler <c-p> i:ide        " Insert 模式下 Ctrl+P 交给 IDE（已禁用）
+sethandler <c-e> n:ide         " Normal 模式下 Ctrl+E 交给 IDE（最近文件）
+sethandler <c-a> n:ide         " Normal 模式下 Ctrl+A 交给 IDE（全选）
